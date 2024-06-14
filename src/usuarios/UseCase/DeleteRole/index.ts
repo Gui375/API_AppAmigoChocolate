@@ -1,10 +1,11 @@
-import { RolesRepository } from '@roles/repositories/RolesRepository'
-import { deleteRoleUseCase } from './DeleteRoleUseCase'
-import { deleteRoleController } from './DeleteRoleController'
+import { UsuariosRepository } from 'src/usuarios/repositories/UsuariosRepository'
+import { deleteUsuarioUseCase } from './DeleteUsuarioUseCase'
+import { deleteUsuarioController } from './DeleteUsuarioController'
 
-const deleteRepository = RolesRepository.getInstance() //Estamos apenas chamando uma instancia que já existe, todos os métodos da controler que usa role, vão instanciar RoleRepositor
+const deleteRepository = UsuariosRepository.getInstance() //Estamos apenas chamando uma instancia que já existe, todos os métodos da controler que usa role, vão instanciar RoleRepositor
 
-const DeleteRoleUseCase = new deleteRoleUseCase(deleteRepository)
+const DeleteUsuarioUseCase = new deleteUsuarioUseCase(deleteRepository)
 
-export const deleteRolesController = new deleteRoleController(DeleteRoleUseCase)
+// eslint-disable-next-line prettier/prettier
+export const DeleteUsuarioController = new deleteUsuarioController(DeleteUsuarioUseCase)
 //Essas ligações é responsavel Por ligar cada classe na outra
