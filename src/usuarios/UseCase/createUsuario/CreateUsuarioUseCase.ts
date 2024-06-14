@@ -13,9 +13,9 @@ export class CreateUsuarioUseCase {
   constructor(private usuariosRepository: UsuariosRepository) {}
 
   async execute({ nome, email, senha }: CreateUsuarioDTO): Promise<Usuario> {
-    const roleAreadyExists = await this.usuariosRepository.findByEmail(email)
+    const usuarioAreadyExists = await this.usuariosRepository.findByEmail(email)
 
-    if (roleAreadyExists) {
+    if (usuarioAreadyExists) {
       throw new AppError('Usuário ID already exists')
     }
     return this.usuariosRepository.create({ nome, email, senha })

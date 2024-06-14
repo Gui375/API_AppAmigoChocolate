@@ -3,7 +3,7 @@ import { createUsuariosController } from 'src/usuarios/UseCase/createUsuario'
 
 const rolesRoutes = Router()
 
-rolesRoutes.post('/', (request, response) => {
+rolesRoutes.post('/usuario', (request, response) => {
   return createUsuariosController.handle(request, response)
 })
 

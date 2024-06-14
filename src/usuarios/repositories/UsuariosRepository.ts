@@ -88,5 +88,5 @@ export class UsuariosRepository {
     }
     return result
   }
-  //método getAll com paginador
+  //método getAll com paginadorgit branch -M main
 }

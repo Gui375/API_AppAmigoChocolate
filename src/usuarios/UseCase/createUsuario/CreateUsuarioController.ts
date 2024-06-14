@@ -8,8 +8,12 @@ export class CreateUsuarioController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { nome, email, senha } = request.body
 
-    const role = await this.createUsuarioUseCase.execute({ nome, email, senha })
+    const usuario = await this.createUsuarioUseCase.execute({
+      nome,
+      email,
+      senha,
+    })
 
-    return response.status(201).json(role)
+    return response.status(201).json(usuario)
   }
 }
