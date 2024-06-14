@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { updateUsuarioController } from 'src/usuarios/UseCase/UpdateUsuario'
 import { createUsuariosController } from 'src/usuarios/UseCase/createUsuario'
 import { listUsuariosController } from 'src/usuarios/UseCase/listUsuario'
 import { showUsuariosController } from 'src/usuarios/UseCase/showUsuario'
@@ -18,9 +19,9 @@ usuariosRoutes.get('/:id', (request, response) => {
   return showUsuariosController.handle(request, response)
 })
 
-// rolesRoutes.put('/:id', (request, response) => {
-//   return updateRolesController.handle(request, response)
-// })
+usuariosRoutes.put('/:id', (request, response) => {
+  return updateUsuarioController.handle(request, response)
+})
 
 // rolesRoutes.delete('/:id', (request, response) => {
 //   return deleteRolesController.handle(request, response)
