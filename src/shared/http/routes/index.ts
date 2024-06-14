@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { rolesRoutes } from '@roles/http/routes/roles.routes'
-import { usuariosRoutes } from 'src/usuarios/http/routes/roles.routes'
+import { usuariosRoutes } from 'src/usuarios/http/routes/usuarios.routes'
 
 const routes = Router()
 
