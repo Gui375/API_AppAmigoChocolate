@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { rolesRoutes } from '@roles/http/routes/roles.routes'
+import { usuariosRoutes } from 'src/usuarios/http/routes/roles.routes'
 
 const routes = Router()
 
@@ -8,5 +9,6 @@ const routes = Router()
 // })
 
 routes.use('/roles', rolesRoutes)
+routes.use('/usuarios', usuariosRoutes)
 
 export { routes }

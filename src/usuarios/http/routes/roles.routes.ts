@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import { createUsuariosController } from 'src/usuarios/UseCase/createUsuario'
 
-const rolesRoutes = Router()
+const usuariosRoutes = Router()
 
-rolesRoutes.post('/usuario', (request, response) => {
+usuariosRoutes.post('/', (request, response) => {
   return createUsuariosController.handle(request, response)
 })
 
@@ -24,4 +24,4 @@ rolesRoutes.post('/usuario', (request, response) => {
 //   return deleteRolesController.handle(request, response)
 // })
 
-export { rolesRoutes }
+export { usuariosRoutes }

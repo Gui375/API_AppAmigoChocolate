@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm'
 import { CreateRolesTable1717677183833 } from './migrations/1717677183833-CreateRolesTable'
 import { Role } from '@roles/http/routes/entities/Role'
 import { Usuario } from 'src/usuarios/http/routes/entities/Usuario'
-import { CreateUsuarioTable1718323187939 } from './migrations/1718323187939-CreateUsuarioTable'
+import { CreateUsuarioTable1718323187938 } from './migrations/1718323187939-CreateUsuarioTable'
 
 export const dataSource = new DataSource({
   type: 'sqlite',
@@ -13,7 +13,7 @@ export const dataSource = new DataSource({
   // password: 'test',
   database: './db.sqlite',
   entities: [Role, Usuario], //Definindo as entidades
-  migrations: [CreateUsuarioTable1718323187939, CreateRolesTable1717677183833], //Definindo as migracoes
+  migrations: [CreateUsuarioTable1718323187938, CreateRolesTable1717677183833], //Definindo as migracoes
 })
 
 //Comando pra executar as migration npm run typeorm -- -d ./src/shared/typeorm/index.ts  migration:run
