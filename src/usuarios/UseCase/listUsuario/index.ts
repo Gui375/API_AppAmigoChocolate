@@ -1,6 +1,6 @@
 import { UsuariosRepository } from 'src/usuarios/repositories/UsuariosRepository'
-import { ListUsuariosUseCase } from './listRolesUseCase'
-import { ListUsuariosController } from './listRolesController'
+import { ListUsuariosUseCase } from './listUsuariosUseCase'
+import { ListUsuariosController } from './listUsuariosController'
 
 const usuariosRepository = UsuariosRepository.getInstance() //Estamos apenas chamando uma instancia que já existe
 const listUsuariosUseCase = new ListUsuariosUseCase(usuariosRepository)

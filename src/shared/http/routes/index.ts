@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { rolesRoutes } from '@roles/http/routes/roles.routes'
 import { usuariosRoutes } from 'src/usuarios/http/routes/usuarios.routes'
+import { gruposRoutes } from 'src/Grupos/http/routes/grupos.routes'
 
 const routes = Router()
 
@@ -10,5 +11,6 @@ const routes = Router()
 
 routes.use('/roles', rolesRoutes)
 routes.use('/usuarios', usuariosRoutes)
+routes.use('/grupos', gruposRoutes)
 
 export { routes }
