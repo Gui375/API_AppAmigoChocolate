@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { DeleteUsuarioController } from 'src/usuarios/UseCase/DeleteRole'
+import { DeleteUsuarioController } from 'src/usuarios/UseCase/DeleteUsuario'
 import { updateUsuarioController } from 'src/usuarios/UseCase/UpdateUsuario'
 import { createUsuariosController } from 'src/usuarios/UseCase/createUsuario'
 import { listUsuariosController } from 'src/usuarios/UseCase/listUsuario'
