@@ -3,6 +3,7 @@ import { dataSource } from '@shared/typeorm'
 import { Repository } from 'typeorm'
 
 type CreateGrupoDTO = {
+  id?: string
   nome: string
   quantidadePessoas: number
   participanteID: string
@@ -43,6 +44,7 @@ export class GruposRepository {
   //If mostra que se a varivael INSTANCE (Onde guarda a informação da instancia do repositorio) for false, ele cria uma
 
   async create({
+    id,
     nome,
     quantidadePessoas,
     participanteID,
@@ -50,6 +52,7 @@ export class GruposRepository {
   }: CreateGrupoDTO): Promise<Grupo> {
     //Como o método é assincrono ele tem sempre que retornar uma promessa
     const grupo = this.repository.create({
+      id,
       nome,
       quantidadePessoas,
       participanteID,

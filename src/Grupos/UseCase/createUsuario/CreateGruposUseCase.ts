@@ -5,6 +5,7 @@ import { GruposRepository } from 'src/Grupos/repositories/GruposRepository'
 import { UsuariosRepository } from 'src/usuarios/repositories/UsuariosRepository'
 
 type CreateGrupoDTO = {
+  id?: string
   nome: string
   quantidadePessoas: number
   participanteID: string
@@ -34,7 +35,7 @@ export class CreateGruposUseCase {
     const ADMExiste = await this.usuarioRepository.findById(administradorID)
     if (!ADMExiste) {
       //Caso seja nulo essa condição ele retorna err, ou seja, caso não encontre nada
-      throw new AppError('participanteID not found!', 404)
+      throw new AppError('administradorID not found!', 404)
     }
 
     return this.gruposRepository.create({
