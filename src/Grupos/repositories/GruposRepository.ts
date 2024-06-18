@@ -21,7 +21,7 @@ export type GruposPaginateProperties = {
   total: number
   current_page: number
   data: Grupo[]
-} //Retorno do paginator
+}
 
 export class GruposRepository {
   private repository: Repository<Grupo> //Essa variavel vai manipular as informações da estrutura de dados role
@@ -71,6 +71,12 @@ export class GruposRepository {
     //TypeORM retorna null no lugar de undefinide
     return await this.repository.findOneBy({ nome }) //Quando o nome do parametro do método é diferente do nome da coluna a ser buscada, temos que referenciar desta forma, porem quando é igual podemos passar somente o nome
   }
+
+  // async ValidaIdADM(id: string): Promise<Grupo | null{
+  //   if (!this.repository.findOneBy({ id })) {
+  //     return null
+  //   }
+  // }
 
   async findById(id: string): Promise<Grupo | null> {
     //TypeORM retorna null no lugar de undefinide

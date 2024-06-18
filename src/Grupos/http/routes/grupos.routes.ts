@@ -1,11 +1,12 @@
 import { Router } from 'express'
+import { createGruposController } from 'src/Grupos/UseCase/createUsuario'
 import { listGruposController } from 'src/Grupos/UseCase/listGrupos'
 
 const gruposRoutes = Router()
 
-// gruposRoutes.post('/', (request, response) => {
-//   return createUsuariosController.handle(request, response)
-// })
+gruposRoutes.post('/', (request, response) => {
+  return createGruposController.handle(request, response)
+})
 
 gruposRoutes.get('/', (request, response) => {
   return listGruposController.handle(request, response)
