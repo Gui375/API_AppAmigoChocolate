@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "API em typescript",
+    "title": "API Amigo chocolate",
     "description": "Documentacao da minha API em typescript",
     "version": "1.0.0"
 
@@ -49,7 +49,7 @@
     "/usuarios": {
       "post": {
         "tags": ["Usuario"],
-        "summary": "Create a Usuario",
+        "summary": "Cria um Usuario",
         "description": "Create a new Usuario",
         "requestBody": {
           "content": {
@@ -87,6 +87,47 @@
         "responses": {
           "200": {
             "description": "Success."
+          }
+        }
+      }
+    },
+    "/novoUSgrupo": {
+      "post": {
+        "tags": ["Grupo"],
+        "summary": "Convite Grupo",
+        "description": "Envia o convite pro usuario",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_grupo": {
+                    "type": "string"
+                  },
+                  "nome": {
+                    "type": "string"
+                  },
+                  "quantidadePessoas": {
+                    "type": "number"
+                  },
+                  "participanteID": {
+                    "type": "string"
+                  },
+                  "ADM": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Convite enviado"
+          },
+          "400": {
+            "description": "Usuario not found"
           }
         }
       }
@@ -136,6 +177,197 @@
           },
           "400": {
             "description": "Usuario already exists."
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Usuario"],
+        "summary": "Atualiza o Usuario",
+        "description": "Atualiza o Usuario",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do usuario a ser atualizado",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Usuario created."
+          },
+          "400": {
+            "description": "Usuario already exists."
+          }
+        }
+      },
+      "get": {
+        "tags": ["Usuario"],
+        "summary": "Encontrar um usuario",
+        "description": "Returns one usuarios paginated.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do usuario a ser atualizado",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    },
+    "/grupos": {
+      "post": {
+        "tags": ["Grupo"],
+        "summary": "Cria um novo grupo",
+        "description": "Cria um novo grupo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "quantidadePessoas": {
+                    "type": "number"
+                  },
+                  "participanteID": {
+                    "type": "string"
+                  },
+                  "ADM": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Grupo created."
+          },
+          "400": {
+            "description": "Grupo already exists."
+          }
+        }
+      },
+      "get": {
+        "tags": ["Grupo"],
+        "summary": "List all Grupo",
+        "description": "Returns all usuarios paginated.",
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    },
+    "/grupos/{id}": {
+      "put": {
+        "tags": ["Grupo"],
+        "summary": "Atualiza o Grupo",
+        "description": "Atualiza o Grupo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do usuario a ser atualizado",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_grupo": {
+                    "type": "string"
+                  },
+                  "nome": {
+                    "type": "string"
+                  },
+                  "quantidadePessoas": {
+                    "type": "number"
+                  },
+                  "participanteID": {
+                    "type": "string"
+                  },
+                  "ADM": {
+                    "type": "boolean"
+                  }
+                },
+                "required": ["name", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Grupo created."
+          },
+          "400": {
+            "description": "Grupo already exists."
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Grupo"],
+        "summary": "Deleta o Grupo",
+        "description": "Deleta o Grupo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do grupo a ser excluido",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Grupo created."
+          },
+          "400": {
+            "description": "Grupo already exists."
+          }
+        }
+      },
+      "get": {
+        "tags": ["Grupo"],
+        "summary": "Encontrar um grupo",
+        "description": "Encontrar um grupo.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do usuario a ser atualizado",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
           }
         }
       }
