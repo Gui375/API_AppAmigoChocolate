@@ -45,6 +45,100 @@
           }
         }
       }
+    },
+    "/usuarios": {
+      "post": {
+        "tags": ["Usuario"],
+        "summary": "Create a Usuario",
+        "description": "Create a new Usuario",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "senha": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuario created."
+          },
+          "400": {
+            "description": "Usuario already exists."
+          }
+        }
+      },
+      "get": {
+        "tags": ["Usuario"],
+        "summary": "List all Usuarios",
+        "description": "Returns all usuarios paginated.",
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    },
+    "/usuarios/{id}": {
+      "put": {
+        "tags": ["Usuario"],
+        "summary": "Atualiza o Usuario",
+        "description": "Atualiza o Usuario",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do usuario a ser atualizado",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  }
+                },
+                "required": ["name", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuario created."
+          },
+          "400": {
+            "description": "Usuario already exists."
+          }
+        }
+      }
     }
   }
 }
