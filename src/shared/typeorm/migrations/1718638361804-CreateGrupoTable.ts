@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateGrupoTable1718638361804 implements MigrationInterface {
+export class CreateGrupoTable1718638361809 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -10,6 +10,11 @@ export class CreateGrupoTable1718638361804 implements MigrationInterface {
             name: 'id',
             type: 'uuid',
             isPrimary: true,
+          },
+          {
+            name: 'id_grupo',
+            type: 'string',
+            isUnique: false,
           },
           {
             name: 'nome',
@@ -27,8 +32,8 @@ export class CreateGrupoTable1718638361804 implements MigrationInterface {
             isUnique: false,
           },
           {
-            name: 'administradorID',
-            type: 'string',
+            name: 'ADM',
+            type: 'boolean',
             isUnique: false,
           },
           {

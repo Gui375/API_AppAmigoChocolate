@@ -1,7 +1,7 @@
 //Validação das regras antes de ir pra controller
 import { AppError } from '@shared/Errors/AppError'
 import { Grupo } from 'src/Grupos/http/routes/entities/Grupo'
-import { GruposRepository } from 'src/Grupos/repositories/GruposRepository'
+import { NovoGruposRepository } from 'src/novoParticipante/repositories/GruposRepository'
 import { UsuariosRepository } from 'src/usuarios/repositories/UsuariosRepository'
 
 type CreateGrupoDTO = {
@@ -14,7 +14,7 @@ type CreateGrupoDTO = {
 //Onde fica as regras e onde é gravado o novo objeto de fato
 export class CreateGruposUseCase {
   constructor(
-    private gruposRepository: GruposRepository,
+    private gruposRepository: NovoGruposRepository,
     private usuarioRepository: UsuariosRepository,
   ) {}
   async execute({

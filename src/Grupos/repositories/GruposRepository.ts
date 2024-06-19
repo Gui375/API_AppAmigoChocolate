@@ -1,13 +1,14 @@
 import { Grupo } from '../http/routes/entities/Grupo'
 import { dataSource } from '@shared/typeorm'
 import { Repository } from 'typeorm'
+import { v4 as uuidv4 } from 'uuid'
 
 type CreateGrupoDTO = {
-  id?: string
+  id_grupo: string
   nome: string
   quantidadePessoas: number
   participanteID: string
-  administradorID: string
+  ADM: boolean
 }
 
 export type PaginateParams = {
@@ -44,19 +45,20 @@ export class GruposRepository {
   //If mostra que se a varivael INSTANCE (Onde guarda a informação da instancia do repositorio) for false, ele cria uma
 
   async create({
-    id,
+    id_grupo,
     nome,
     quantidadePessoas,
     participanteID,
-    administradorID,
+    ADM,
   }: CreateGrupoDTO): Promise<Grupo> {
     //Como o método é assincrono ele tem sempre que retornar uma promessa
+    id_grupo = uuidv4()
     const grupo = this.repository.create({
-      id,
+      id_grupo,
       nome,
       quantidadePessoas,
       participanteID,
-      administradorID,
+      ADM,
     })
     return this.repository.save(grupo)
   }

@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 import { v4 as uuidv4 } from 'uuid'
 
 @Entity('grupos') //Decorator do typeORM | 'role' = nome da tabela
-export class Grupo {
+export class NovoNoGrupo {
   @PrimaryColumn()
   id: string
 
