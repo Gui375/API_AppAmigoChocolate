@@ -1,5 +1,7 @@
 import { Router } from 'express'
-import { createGruposController } from 'src/Grupos/UseCase/createUsuario'
+import { DeleteGrupoController } from 'src/Grupos/UseCase/DeleteGrupo'
+import { updateGrupoController } from 'src/Grupos/UseCase/UpdateGrupo'
+import { createGruposController } from 'src/Grupos/UseCase/createNovoGrupo'
 import { listGruposController } from 'src/Grupos/UseCase/listGrupos'
 
 const gruposRoutes = Router()
@@ -17,12 +19,12 @@ gruposRoutes.get('/', (request, response) => {
 //   return showUsuariosController.handle(request, response)
 // })
 
-// gruposRoutes.put('/:id', (request, response) => {
-//   return updateUsuarioController.handle(request, response)
-// })
+gruposRoutes.put('/:id', (request, response) => {
+  return updateGrupoController.handle(request, response)
+})
 
-// gruposRoutes.delete('/:id', (request, response) => {
-//   return DeleteUsuarioController.handle(request, response)
-// })
+gruposRoutes.delete('/:id', (request, response) => {
+  return DeleteGrupoController.handle(request, response)
+})
 
 export { gruposRoutes }

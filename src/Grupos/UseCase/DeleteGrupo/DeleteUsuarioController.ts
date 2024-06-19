@@ -1,13 +1,13 @@
 //Métodos que a rota chama
 import { Request, Response } from 'express'
-import { deleteUsuarioUseCase } from './DeleteUsuarioUseCase'
+import { deleteGrupoUseCase } from './DeleteUsuarioUseCase'
 
-export class deleteUsuarioController {
-  constructor(private deleteUsuarioUseCase: deleteUsuarioUseCase) {}
+export class deleteGrupoController {
+  constructor(private deleteGrupoUseCase: deleteGrupoUseCase) {}
   //Onde fica parte da gravação
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params
-    await this.deleteUsuarioUseCase.execute({ id })
+    await this.deleteGrupoUseCase.execute({ id })
 
     return response.status(204).send({ message: 'Conteudo excluido' })
   }

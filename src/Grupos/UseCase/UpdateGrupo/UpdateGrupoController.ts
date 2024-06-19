@@ -1,18 +1,21 @@
 //Métodos que a rota chama
 import { Request, Response } from 'express'
-import { UpdateUsuarioUseCase } from './UpdateRoleUseCase'
+import { UpdateGrupoUseCase } from './UpdateGrupoUseCase'
 
-export class UpdateUsuarioController {
-  constructor(private updateUsuarioUseCase: UpdateUsuarioUseCase) {}
+export class UpdateGrupoController {
+  constructor(private updateUsuarioUseCase: UpdateGrupoUseCase) {}
   //Onde fica parte da gravação
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params
-    const { nome, email, senha } = request.body
+    const { id_grupo, nome, quantidadePessoas, participanteID, ADM } =
+      request.body
     const role = await this.updateUsuarioUseCase.execute({
       id,
+      id_grupo,
       nome,
-      email,
-      senha,
+      quantidadePessoas,
+      participanteID,
+      ADM,
     })
 
     return response.status(200).json(role)
