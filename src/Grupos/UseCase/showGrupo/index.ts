@@ -1,11 +1,11 @@
-import { UsuariosRepository } from 'src/usuarios/repositories/UsuariosRepository'
-import { showUsuarioUseCase } from './showRoleUseCase'
-import { showUsuarioController } from './showRoleController'
+import { GruposRepository } from 'src/Grupos/repositories/GruposRepository'
+import { showGrupoUseCase } from './showGrupoUseCase'
+import { ShowGrupoController } from './showGrupoController'
 
-const showUsuarioRepository = UsuariosRepository.getInstance() //Estamos apenas chamando uma instancia que já existe, todos os métodos da controler que usa role, vão instanciar RoleRepositor
+const showGrupoRepository = GruposRepository.getInstance() //Estamos apenas chamando uma instancia que já existe, todos os métodos da controler que usa role, vão instanciar RoleRepositor
 
-const ShowUsuarioUseCase = new showUsuarioUseCase(showUsuarioRepository)
+const ShowGrupoUseCase = new showGrupoUseCase(showGrupoRepository)
 
 // eslint-disable-next-line prettier/prettier
-export const showUsuariosController = new showUsuarioController(ShowUsuarioUseCase)
+export const showGrupoController = new ShowGrupoController(ShowGrupoUseCase)
 //Essas ligações é responsavel Por ligar cada classe na outra
