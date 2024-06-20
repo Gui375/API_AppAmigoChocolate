@@ -7,15 +7,13 @@ export class UpdateGrupoController {
   //Onde fica parte da gravação
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params
-    const { id_grupo, nome, quantidadePessoas, participanteID, ADM } =
-      request.body
+    const { id_grupo, nome, quantidadePessoas, valor } = request.body
     const role = await this.updateUsuarioUseCase.execute({
       id,
       id_grupo,
       nome,
       quantidadePessoas,
-      participanteID,
-      ADM,
+      valor,
     })
 
     return response.status(200).json(role)

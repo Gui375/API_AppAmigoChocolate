@@ -1,8 +1,8 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 import { v4 as uuidv4 } from 'uuid'
 
-@Entity('grupos') //Decorator do typeORM | 'role' = nome da tabela
-export class NovoNoGrupo {
+@Entity('participantesGrupo') //Decorator do typeORM | 'role' = nome da tabela
+export class NovoNoParticipante {
   @PrimaryColumn()
   id: string
 
@@ -10,13 +10,7 @@ export class NovoNoGrupo {
   id_grupo: string
 
   @Column()
-  nome: string
-
-  @Column()
-  quantidadePessoas: number
-
-  @Column()
-  participanteID: string
+  id_usuario: string
 
   @Column()
   ADM: boolean

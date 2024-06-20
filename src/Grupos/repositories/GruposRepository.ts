@@ -7,8 +7,7 @@ type CreateGrupoDTO = {
   id_grupo: string
   nome: string
   quantidadePessoas: number
-  participanteID: string
-  ADM: boolean
+  valor: number
 }
 
 export type PaginateParams = {
@@ -48,8 +47,7 @@ export class GruposRepository {
     id_grupo,
     nome,
     quantidadePessoas,
-    participanteID,
-    ADM,
+    valor,
   }: CreateGrupoDTO): Promise<Grupo> {
     //Como o método é assincrono ele tem sempre que retornar uma promessa
     id_grupo = uuidv4()
@@ -57,8 +55,7 @@ export class GruposRepository {
       id_grupo,
       nome,
       quantidadePessoas,
-      participanteID,
-      ADM,
+      valor,
     })
     return this.repository.save(grupo)
   }

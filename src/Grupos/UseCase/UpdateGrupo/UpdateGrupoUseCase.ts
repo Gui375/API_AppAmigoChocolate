@@ -8,8 +8,7 @@ type UpdateGrupoDTO = {
   id_grupo: string
   nome: string
   quantidadePessoas: number
-  participanteID: string
-  ADM: boolean
+  valor: number
 }
 //Onde fica as regras e onde é gravado o novo objeto de fato
 export class UpdateGrupoUseCase {
@@ -20,8 +19,7 @@ export class UpdateGrupoUseCase {
     id_grupo,
     nome,
     quantidadePessoas,
-    participanteID,
-    ADM,
+    valor,
   }: UpdateGrupoDTO): Promise<Grupo> {
     const grupo = await this.grupoRepository.findById(id)
     if (!grupo) {
@@ -30,8 +28,7 @@ export class UpdateGrupoUseCase {
     grupo.id_grupo = id_grupo
     grupo.nome = nome
     grupo.quantidadePessoas = quantidadePessoas
-    grupo.participanteID = participanteID
-    grupo.ADM = ADM
+    grupo.valor = valor
     return this.grupoRepository.save(grupo)
   }
 }

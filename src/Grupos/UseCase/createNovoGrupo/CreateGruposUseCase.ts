@@ -8,8 +8,7 @@ type CreateGrupoDTO = {
   id_grupo: string
   nome: string
   quantidadePessoas: number
-  participanteID: string
-  ADM: boolean
+  valor: number
 }
 //Onde fica as regras e onde é gravado o novo objeto de fato
 export class CreateGruposUseCase {
@@ -21,25 +20,23 @@ export class CreateGruposUseCase {
     id_grupo,
     nome,
     quantidadePessoas,
-    participanteID,
-    ADM,
+    valor,
   }: CreateGrupoDTO): Promise<Grupo> {
     if (Number(quantidadePessoas) <= 0) {
       throw new AppError('quantidadePessoas is wrong!')
     }
     // eslint-disable-next-line prettier/prettier
-    const ParticipanteExiste = await this.usuarioRepository.findById(participanteID)
-    if (!ParticipanteExiste) {
+    const GrupoExiste = await this.usuarioRepository.findById(id_grupo)
+    if (!GrupoExiste) {
       //Caso seja nulo essa condição ele retorna err, ou seja, caso não encontre nada
-      throw new AppError('participanteID not found!', 404)
+      throw new AppError('Grupo not found!', 404)
     }
 
     return this.gruposRepository.create({
       id_grupo,
       nome,
       quantidadePessoas,
-      participanteID,
-      ADM,
+      valor,
     })
   }
 }

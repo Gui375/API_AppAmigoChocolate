@@ -6,15 +6,13 @@ export class CreateGruposController {
   constructor(private createGruposUseCase: CreateGruposUseCase) {}
   //Onde fica parte da gravação
   async handle(request: Request, response: Response): Promise<Response> {
-    const { id_grupo, nome, quantidadePessoas, participanteID, ADM } =
-      request.body
+    const { id_grupo, nome, quantidadePessoas, valor } = request.body
 
     const usuario = await this.createGruposUseCase.execute({
       id_grupo,
       nome,
       quantidadePessoas,
-      participanteID,
-      ADM,
+      valor,
     })
 
     return response.status(201).json(usuario)

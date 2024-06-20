@@ -1,10 +1,12 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateGrupoTable1718638361810 implements MigrationInterface {
+export class CreateNovoParticipanteTable1718910925984
+  implements MigrationInterface
+{
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'grupos',
+        name: 'participantesGrupo',
         columns: [
           {
             name: 'id',
@@ -17,18 +19,13 @@ export class CreateGrupoTable1718638361810 implements MigrationInterface {
             isUnique: false,
           },
           {
-            name: 'nome',
+            name: 'id_usuario',
             type: 'string',
             isUnique: false,
           },
           {
-            name: 'quantidadePessoas',
-            type: 'number',
-            isUnique: false,
-          },
-          {
-            name: 'valor',
-            type: 'number',
+            name: 'ADM',
+            type: 'boolean',
             isUnique: false,
           },
           {

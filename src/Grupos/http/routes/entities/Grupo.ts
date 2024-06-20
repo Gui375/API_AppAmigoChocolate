@@ -16,10 +16,7 @@ export class Grupo {
   quantidadePessoas: number
 
   @Column()
-  participanteID: string
-
-  @Column()
-  ADM: boolean
+  valor: number
 
   @CreateDateColumn()
   created_at: Date
