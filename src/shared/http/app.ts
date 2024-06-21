@@ -3,13 +3,19 @@ import express, { NextFunction, Request, Response } from 'express'
 import 'express-async-errors'
 import swaggerUi from 'swagger-ui-express'
 import { routes } from './routes'
-// import cors from 'cors'
+import cors from 'cors'
 import { AppError } from '@shared/Errors/AppError'
 import swaggerFile from '../../swagger.json'
 
 const app = express()
 
-// app.use(cors)
+app.use(
+  cors({
+    origin: 'http://localhost:8081', // Permite apenas requisições do localhost:3000, ajuste conforme necessário
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
+    allowedHeaders: 'Content-Type,Authorization', // Cabeçalhos permitidos
+  }),
+)
 
 app.use(express.json()) //Falo pro express que ele vai usar json como retorno
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
