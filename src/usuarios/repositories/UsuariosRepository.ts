@@ -65,6 +65,14 @@ export class UsuariosRepository {
     return await this.repository.findOneBy({ email }) //Quando o nome do parametro do método é diferente do nome da coluna a ser buscada, temos que referenciar desta forma, porem quando é igual podemos passar somente o nome
   }
 
+  async ValidaSenha(nome: string, senha: string): Promise<Usuario | null> {
+    //TypeORM retorna null no lugar de undefinide
+    const UsuarioSenha = await this.repository.findOne({
+      where: { nome, senha },
+    })
+    return UsuarioSenha //Quando o nome do parametro do método é diferente do nome da coluna a ser buscada, temos que referenciar desta forma, porem quando é igual podemos passar somente o nome
+  }
+
   async findById(id: string): Promise<Usuario | null> {
     //TypeORM retorna null no lugar de undefinide
     return await this.repository.findOneBy({ id }) //Quando o nome do parametro do método é diferente do nome da coluna a ser buscada, temos que referenciar desta forma, porem quando é igual podemos passar somente o nome
