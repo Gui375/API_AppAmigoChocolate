@@ -2,7 +2,7 @@
 import { AppError } from '@shared/Errors/AppError'
 import { GruposRepository } from 'src/Grupos/repositories/GruposRepository'
 import { NovoNoParticipante } from 'src/novoParticipante/http/routes/entities/Grupo'
-import { NovoGruposRepository } from 'src/novoParticipante/repositories/GruposRepository'
+import { NovoGruposRepository } from 'src/novoParticipante/repositories/novoParticipanteRepository'
 import { UsuariosRepository } from 'src/usuarios/repositories/UsuariosRepository'
 
 type CreateGrupoDTO = {

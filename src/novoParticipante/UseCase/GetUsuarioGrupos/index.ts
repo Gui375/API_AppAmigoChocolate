@@ -1,19 +1,16 @@
-import { CreateGruposUseCase } from './CreateGruposUseCase'
-import { CreateGruposController } from './CreateGruposController'
-import { UsuariosRepository } from 'src/usuarios/repositories/UsuariosRepository'
 import { NovoGruposRepository } from 'src/novoParticipante/repositories/novoParticipanteRepository'
 import { GruposRepository } from 'src/Grupos/repositories/GruposRepository'
+import { showUsuarioGrupoUseCase } from './showUsuariosGruposUseCase'
+import { ShowUsuarioGrupoController } from './showUsuariosGruposController'
 
-const usuariosRepository = UsuariosRepository.getInstance()
 const gruposRepository = GruposRepository.getInstance()
 const novoParticipante = NovoGruposRepository.getInstance() //Estamos apenas chamando uma instancia que já existe
 
-const createGruposUseCase = new CreateGruposUseCase(
+const ShowUsuarioUseCase = new showUsuarioGrupoUseCase(
   novoParticipante,
-  usuariosRepository,
   gruposRepository,
 )
 
 // eslint-disable-next-line prettier/prettier
-export const NewParticipanteGrupoController = new CreateGruposController(createGruposUseCase)
+export const ShowUsuariosInGroupsController = new ShowUsuarioGrupoController(ShowUsuarioUseCase)
 //Essas ligações é responsavel Por ligar cada classe na outra

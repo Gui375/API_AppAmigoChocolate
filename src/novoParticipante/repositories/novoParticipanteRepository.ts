@@ -28,12 +28,22 @@ export class NovoGruposRepository {
     //TypeORM retorna null no lugar de undefinide
     return await this.repository.findOneBy({ id }) //Quando o nome do parametro do método é diferente do nome da coluna a ser buscada, temos que referenciar desta forma, porem quando é igual podemos passar somente o nome
   }
+
+  async findUsersInGroup(idgrupo: string): Promise<NovoNoParticipante[]> {
+    return await this.repository.find({
+      where: {
+        id_grupo: idgrupo,
+      },
+    })
+  }
+
   async findByUserAndGroup(
     id_usuario: string,
     id_grupo: string,
   ): Promise<NovoNoParticipante | undefined> {
     return await this.repository.findOne({ where: { id_usuario, id_grupo } })
   }
+
   async create({
     id_grupo,
     id_usuario,
